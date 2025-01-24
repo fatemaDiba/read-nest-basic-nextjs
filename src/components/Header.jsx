@@ -9,7 +9,7 @@ import {
 const Header = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  console.log(user);
+
   const NavLists = (
     <>
       <li>

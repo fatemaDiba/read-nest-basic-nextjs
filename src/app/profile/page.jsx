@@ -1,10 +1,13 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
 const Profile = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+
   return (
     <div>
       <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto my-16 bg-white shadow-xl rounded-lg text-gray-900">
+        <h2 className="text-center text-3xl font-bold mb-4">Welcome Back!</h2>
         <div className="rounded-t-lg h-32 overflow-hidden">
           <img
             className="object-cover object-top w-full"
