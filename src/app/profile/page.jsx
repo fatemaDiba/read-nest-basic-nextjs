@@ -18,15 +18,15 @@ const Profile = async () => {
         <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
           <img
             className="object-cover object-center h-32"
-            src={user.picture}
+            src={user?.picture}
             alt="Woman looking front"
           />
         </div>
         <div className="text-center mt-2">
           <h2 className="font-semibold">
-            {user.given_name} {user.family_name}
+            {user?.given_name} {user?.family_name}
           </h2>
-          <p className="text-gray-500">{user.email}</p>
+          <p className="text-gray-500">{user?.email}</p>
         </div>
         <ul className="py-4 mt-2 text-gray-700 flex items-center justify-around">
           <li className="flex flex-col items-center justify-around">
