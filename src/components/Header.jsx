@@ -1,10 +1,18 @@
 import Link from "next/link";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import {
+  RegisterLink,
+  LoginLink,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 
-const Header = () => {
+const Header = async () => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
   const navLists = (
     <>
       <li>
-        <Link href="/home">Home</Link>
+        <Link href="/">Home</Link>
       </li>
       <li>
         <Link href="/profile">Profile</Link>
@@ -47,7 +55,20 @@ const Header = () => {
           <ul className="font-semibold text-base flex gap-4">{navLists}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-blue-500 hover:bg-blue-600 border-none">Login</a>
+          {user ? (
+            <LogoutLink className="btn bg-blue-500 hover:bg-blue-600 border-none">
+              Logout
+            </LogoutLink>
+          ) : (
+            <>
+              <LoginLink className="p-2 mr-2 bg-blue-500 hover:bg-blue-600 border-none">
+                Login
+              </LoginLink>
+              <RegisterLink className="p-2 bg-blue-500 hover:bg-blue-600 border-none">
+                Register
+              </RegisterLink>
+            </>
+          )}
         </div>
       </div>
     </div>
