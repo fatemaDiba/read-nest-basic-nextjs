@@ -9,7 +9,8 @@ import {
 const Header = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  const navLists = (
+  console.log(user);
+  const NavLists = (
     <>
       <li>
         <Link href="/">Home</Link>
@@ -44,7 +45,7 @@ const Header = async () => {
               tabIndex={0}
               className=" dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <navLists></navLists>
+              {NavLists}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl md:text-3xl font-bold">
@@ -52,19 +53,19 @@ const Header = async () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex ">
-          <ul className="font-semibold text-base flex gap-4">{navLists}</ul>
+          <ul className="font-semibold text-base flex gap-4">{NavLists}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
-            <LogoutLink className="btn bg-blue-500 hover:bg-blue-600 border-none">
+            <LogoutLink className="py-2 px-3 rounded-lg font-semibold bg-blue-500 hover:bg-blue-600 border-none">
               Logout
             </LogoutLink>
           ) : (
             <>
-              <LoginLink className="p-2 mr-2 bg-blue-500 hover:bg-blue-600 border-none">
+              <LoginLink className="py-2 px-3 rounded-lg font-semibold mr-2 bg-blue-500 hover:bg-blue-600 border-none">
                 Login
               </LoginLink>
-              <RegisterLink className="p-2 bg-blue-500 hover:bg-blue-600 border-none">
+              <RegisterLink className="py-2 px-3 rounded-lg font-semibold bg-blue-500 hover:bg-blue-600 border-none">
                 Register
               </RegisterLink>
             </>
